@@ -12,9 +12,6 @@ warnings.filterwarnings("ignore")
 
 """
 Read data & add lagged variables
-We lag the variables in monthly data by 1, and the variables in annual data by 2, 
-given that the annual data should be lagged by at least 1.5 years (see discussion canvas)
-We create an additonal variable, POA, which is the operating profit over book value
 """
 
 # montly data
@@ -77,9 +74,7 @@ merged_data['lagged_BEME'] = np.where(merged_data['month']<=6, merged_data.pop('
 # merged_data['POA'] = merged_data['lagged_OP']/merged_data['book']
 
 """
-We define quantiles for each variable we base our strategy on,
-afterwards, we create a short & long portfolio and identicate which companies we trade
-At last, we make the final QMJ portfolio
+We define quantiles for each variable we base our strategy on
 """
 # define cuts
 n = 10
@@ -154,9 +149,8 @@ qmj_portfolio = pd.merge(qmj_portfolio, ff_factors, on='mdate')
 qmj_portfolio['EXRET'] = qmj_portfolio['RET'] - qmj_portfolio['RF']
 
 """
-Now we analyze our strategy by making a regression and several plots
+Now we analyze
 """
-print('RESULTS OF QMJ STRATEGY!!')
 
 # regression
 x = qmj_portfolio[["MktRF","SMB","HML"]]
