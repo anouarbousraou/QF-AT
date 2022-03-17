@@ -68,11 +68,6 @@ merged_data['lagged_OP'] = np.where(merged_data['month']<=6, merged_data.pop('la
 merged_data['lagged_INV'] = np.where(merged_data['month']<=6, merged_data.pop('lagged_INV_2'), merged_data.pop('lagged_INV_1'))
 merged_data['lagged_BEME'] = np.where(merged_data['month']<=6, merged_data.pop('lagged_BEME_2'), merged_data.pop('lagged_BEME_1'))
 
-## Don't need this, tutor said we can still change to OP
-# # create operating profit over book value variable
-# merged_data['book'] = merged_data['lagged_BEME'] * merged_data['lagged_ME']
-# merged_data['POA'] = merged_data['lagged_OP']/merged_data['book']
-
 """
 We define quantiles for each variable we base our strategy on
 """
