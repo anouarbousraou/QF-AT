@@ -1,6 +1,4 @@
 # import packages
-from email.headerregistry import UniqueUnstructuredHeader
-from logging.handlers import RotatingFileHandler
 import pandas as pd
 import statsmodels.api as sm
 from scipy import stats
